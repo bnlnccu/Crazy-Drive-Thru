@@ -12,13 +12,22 @@ public class DeliveryBag : MonoBehaviour
         var move = other.GetComponent<MoveToTarget2D>();
         if (move != null) move.enabled = false;
 
-        // ===== TODO D-1: Use CompareTag to check against OrderManager.Instance.CurrentState =====
-        // StateA -> "Fries" is correct, "Nugget" is wrong
-        // StateB -> "Nugget" is correct, "Fries" is wrong
-        // Correct: FindObjectOfType<ScoreManager>().AddScore(10)
-        // Wrong:   FindObjectOfType<ScoreManager>().SubtractScore(5)
-        // Then call: OrderManager.Instance.OnTrialComplete(tag, "Delivered", correct)
-        //            OrderManager.Instance.NotifyFoodDestroyed(other.gameObject)
+        GameState state = OrderManager.Instance.CurrentState;
+        bool correct = false;
+
+        if (state == GameState.StateA)
+            correct = other.CompareTag("Fries");
+        else
+            correct = other.CompareTag("Nugget");
+
+        ScoreManager sm = FindObjectOfType<ScoreManager>();
+        if (correct)
+            sm.AddScore(10);
+        else
+            sm.SubtractScore(5);
+
+        OrderManager.Instance.OnTrialComplete(other.gameObject.tag, "Delivered", correct);
+        OrderManager.Instance.NotifyFoodDestroyed(other.gameObject);
 
         StartCoroutine(FallIntoBag(other.gameObject));
     }
