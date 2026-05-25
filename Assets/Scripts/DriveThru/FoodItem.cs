@@ -15,14 +15,22 @@ public class FoodItem : MonoBehaviour
         if (isBeingDestroyed) return;
         if (OrderManager.Instance != null && OrderManager.Instance.EnableDragMode) return;
 
-        Destroy(gameObject);
+        GameState state = OrderManager.Instance.CurrentState;
+        bool isDistractor = false;
 
-        // ===== TODO F-2: Replace F-1 with judgment logic =====
-        // Use OrderManager.Instance.CurrentState + CompareTag() to determine:
-        //   StateA -> Fries is correct, Nugget is distractor
-        //   StateB -> Nugget is correct, Fries is distractor
-        // Distractor: FindObjectOfType<ScoreManager>().AddScore(5)
-        // Correct food (False Alarm): FindObjectOfType<ScoreManager>().SubtractScore(5)
+        if (state == GameState.StateA)
+            isDistractor = !CompareTag("Fries");
+        else
+            isDistractor = !CompareTag("Nugget");
+
+        ScoreManager sm = FindObjectOfType<ScoreManager>();
+
+        if (isDistractor)
+            sm.AddScore(5);
+        else
+            sm.SubtractScore(5);
+
+        Destroy(gameObject);
 
         // ===== TODO F-3: Add animation before destroy =====
         // var move = GetComponent<MoveToTarget2D>(); if (move != null) move.enabled = false;
