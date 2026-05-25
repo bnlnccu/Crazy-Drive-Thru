@@ -15,8 +15,7 @@ public class FoodItem : MonoBehaviour
         if (isBeingDestroyed) return;
         if (OrderManager.Instance != null && OrderManager.Instance.EnableDragMode) return;
 
-        // ===== TODO F-1: Destroy(gameObject); =====
-        // Hint: just one line to make the food disappear on click
+        Destroy(gameObject);
 
         // ===== TODO F-2: Replace F-1 with judgment logic =====
         // Use OrderManager.Instance.CurrentState + CompareTag() to determine:
