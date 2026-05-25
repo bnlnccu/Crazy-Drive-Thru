@@ -51,8 +51,9 @@ public class FoodItem : MonoBehaviour
         if (!OrderManager.Instance.EnableDragMode) return;
         if (isBeingDestroyed) return;
 
-        // ===== TODO DLC A-1: isDragging = true + follow mouse =====
-        // Camera.main.ScreenToWorldPoint(Input.mousePosition)
+        isDragging = true;
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = new Vector3(mousePos.x, mousePos.y, 0f);
     }
 
     private void OnMouseUp()
@@ -60,7 +61,8 @@ public class FoodItem : MonoBehaviour
         if (!OrderManager.Instance.EnableDragMode) return;
         if (isBeingDestroyed) return;
 
-        // ===== TODO DLC A-2: isDragging = false + Invoke("CheckIfDelivered", 0.1f) =====
+        isDragging = false;
+        Invoke("CheckIfDelivered", 0.1f);
     }
 
     private void CheckIfDelivered()
