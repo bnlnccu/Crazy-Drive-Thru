@@ -15,41 +15,24 @@ public class FoodItem : MonoBehaviour
         if (isBeingDestroyed) return;
         if (OrderManager.Instance != null && OrderManager.Instance.EnableDragMode) return;
 
-        GameState state = OrderManager.Instance.CurrentState;
-        bool isDistractor = false;
+        // ===== TODO F-1: Destroy(gameObject); =====
+        // Hint: just one line to make the food disappear on click
 
-        if (state == GameState.StateA)
-            isDistractor = !CompareTag("Fries");
-        else
-            isDistractor = !CompareTag("Nugget");
+        // ===== TODO F-2: Replace F-1 with judgment logic =====
+        // Use OrderManager.Instance.CurrentState + CompareTag() to determine:
+        //   StateA -> Fries is correct, Nugget is distractor
+        //   StateB -> Nugget is correct, Fries is distractor
+        // Distractor: FindObjectOfType<ScoreManager>().AddScore(5)
+        // Correct food (False Alarm): FindObjectOfType<ScoreManager>().SubtractScore(5)
 
-        ScoreManager sm = FindObjectOfType<ScoreManager>();
-
-        if (isDistractor)
-        {
-            sm.AddScore(5);
-        }
-        else
-        {
-            sm.SubtractScore(5);
-        }
-
-        // Stop conveyor movement
-        var move = GetComponent<MoveToTarget2D>();
-        if (move != null) move.enabled = false;
-
-        // Enable animator and play toss animation + delayed destroy
-        if (anim != null)
-        {
-            anim.enabled = true;
-            anim.SetTrigger("Toss");
-        }
-        isBeingDestroyed = true;
-
-        string action = isDistractor ? "Discarded" : "FalseAlarm";
-        OrderManager.Instance.OnTrialComplete(gameObject.tag, action, isDistractor);
-        OrderManager.Instance.NotifyFoodDestroyed(gameObject);
-        Destroy(gameObject, 0.5f);
+        // ===== TODO F-3: Add animation before destroy =====
+        // var move = GetComponent<MoveToTarget2D>(); if (move != null) move.enabled = false;
+        // if (anim != null) { anim.enabled = true; anim.SetTrigger("Toss"); }
+        // isBeingDestroyed = true;
+        // string action = isDistractor ? "Discarded" : "FalseAlarm";
+        // OrderManager.Instance.OnTrialComplete(gameObject.tag, action, isDistractor);
+        // OrderManager.Instance.NotifyFoodDestroyed(gameObject);
+        // Destroy(gameObject, 0.5f);
     }
 
     private void OnMouseDrag()
@@ -57,9 +40,8 @@ public class FoodItem : MonoBehaviour
         if (!OrderManager.Instance.EnableDragMode) return;
         if (isBeingDestroyed) return;
 
-        isDragging = true;
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector3(mousePos.x, mousePos.y, 0f);
+        // ===== TODO DLC A-1: isDragging = true + follow mouse =====
+        // Camera.main.ScreenToWorldPoint(Input.mousePosition)
     }
 
     private void OnMouseUp()
@@ -67,8 +49,7 @@ public class FoodItem : MonoBehaviour
         if (!OrderManager.Instance.EnableDragMode) return;
         if (isBeingDestroyed) return;
 
-        isDragging = false;
-        Invoke("CheckIfDelivered", 0.1f);
+        // ===== TODO DLC A-2: isDragging = false + Invoke("CheckIfDelivered", 0.1f) =====
     }
 
     private void CheckIfDelivered()

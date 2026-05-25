@@ -183,11 +183,11 @@ public class OrderManager : MonoBehaviour
         else if (!correct && wrongSound != null)
             audioSource.PlayOneShot(wrongSound);
 
-        string csvLine = string.Format("{0},{1},{2},{3},{4},{5},{6}",
-            trialCounter.CurrentTrial, CurrentState, DidSwitchThisTrial,
-            foodTag, action, rt.ToString("F1"), correct);
-        collectedDataLines.Add(csvLine);
-        Debug.Log("@DATA," + csvLine);
+        // ===== TODO CSV: Build @DATA CSV string and Debug.Log =====
+        // Format: "@DATA," + Trial,State,IsSwitch,FoodType,Action,RT,Correct
+        // Hint: use string.Format with the variables above (trialCounter.CurrentTrial,
+        //       CurrentState, DidSwitchThisTrial, foodTag, action, rt, correct)
+        // Also add the line to collectedDataLines for CSV export
 
         trialCounter.NextTrial();
 
