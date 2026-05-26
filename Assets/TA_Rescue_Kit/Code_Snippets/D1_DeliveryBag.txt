@@ -1,0 +1,20 @@
+// Rescue Kit: Copy the following code and paste it into DeliveryBag.cs > OnTriggerEnter2D()
+// Replace: // ===== TODO D-1 ===== block
+// Location: DeliveryBag.cs, inside OnTriggerEnter2D(), after the MoveToTarget2D disable line
+
+GameState state = OrderManager.Instance.CurrentState;
+bool correct = false;
+
+if (state == GameState.StateA)
+    correct = other.CompareTag("Fries");
+else
+    correct = other.CompareTag("Nugget");
+
+ScoreManager sm = FindObjectOfType<ScoreManager>();
+if (correct)
+    sm.AddScore(10);
+else
+    sm.SubtractScore(5);
+
+OrderManager.Instance.OnTrialComplete(other.gameObject.tag, "Delivered", correct);
+OrderManager.Instance.NotifyFoodDestroyed(other.gameObject);

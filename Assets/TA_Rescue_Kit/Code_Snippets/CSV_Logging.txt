@@ -1,0 +1,9 @@
+// Rescue Kit: Copy the following code and paste it into OrderManager.cs > OnTrialComplete()
+// Replace: // ===== TODO CSV ===== block
+// Location: OrderManager.cs, inside OnTrialComplete(), after the audio PlayOneShot section
+
+string csvLine = string.Format("{0},{1},{2},{3},{4},{5},{6}",
+    trialCounter.CurrentTrial, CurrentState, DidSwitchThisTrial,
+    foodTag, action, rt.ToString("F1"), correct);
+collectedDataLines.Add(csvLine);
+Debug.Log("@DATA," + csvLine);

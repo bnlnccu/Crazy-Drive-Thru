@@ -1,0 +1,20 @@
+// Rescue Kit: Copy the following code and paste it into FoodItem.cs > OnMouseDown()
+// Replace BOTH: // ===== TODO F-1 ===== AND // ===== TODO F-2 ===== blocks
+// Location: FoodItem.cs, inside OnMouseDown(), after the two if-guard lines
+
+GameState state = OrderManager.Instance.CurrentState;
+bool isDistractor = false;
+
+if (state == GameState.StateA)
+    isDistractor = !CompareTag("Fries");
+else
+    isDistractor = !CompareTag("Nugget");
+
+ScoreManager sm = FindObjectOfType<ScoreManager>();
+
+if (isDistractor)
+    sm.AddScore(5);
+else
+    sm.SubtractScore(5);
+
+Destroy(gameObject);

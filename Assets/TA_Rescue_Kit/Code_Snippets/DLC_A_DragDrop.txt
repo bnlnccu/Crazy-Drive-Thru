@@ -1,0 +1,12 @@
+// Rescue Kit: Copy the following into FoodItem.cs
+// Replace TODO DLC A-1 inside OnMouseDrag() and TODO DLC A-2 inside OnMouseUp()
+// Prerequisite: Enable Drag Mode must be checked in OrderManager Inspector
+
+// === Paste inside OnMouseDrag(), after the two if-guard lines ===
+isDragging = true;
+Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+transform.position = new Vector3(mousePos.x, mousePos.y, 0f);
+
+// === Paste inside OnMouseUp(), after the two if-guard lines ===
+isDragging = false;
+Invoke("CheckIfDelivered", 0.1f);

@@ -1,0 +1,5 @@
+// Rescue Kit: Copy the following code and paste it into FoodItem.cs > OnMouseDown()
+// Replace the line: // ===== TODO F-1 =====
+// Location: FoodItem.cs, inside OnMouseDown(), after the two if-guard lines
+
+Destroy(gameObject);

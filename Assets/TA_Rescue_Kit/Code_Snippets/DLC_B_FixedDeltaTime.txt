@@ -1,0 +1,9 @@
+// Rescue Kit: Fix the speed bug in MoveToTarget2D.cs > FixedUpdate()
+// Replace the buggy line with the fixed version below
+// Location: MoveToTarget2D.cs, last line of FixedUpdate()
+
+// BUGGY (original):
+// rb.MovePosition(rb.position + direction * speed);
+
+// FIXED (replace with this):
+rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
