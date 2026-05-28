@@ -1,21 +1,5 @@
-// Rescue Kit: Copy the following code and paste it into FoodItem.cs > OnMouseDown()
-// Replace ALL TODO blocks (F-1, F-2, F-3) with this complete version
-// Location: FoodItem.cs, inside OnMouseDown(), after the two if-guard lines
-
-GameState state = OrderManager.Instance.CurrentState;
-bool isDistractor = false;
-
-if (state == GameState.StateA)
-    isDistractor = !CompareTag("Fries");
-else
-    isDistractor = !CompareTag("Nugget");
-
-ScoreManager sm = FindObjectOfType<ScoreManager>();
-
-if (isDistractor)
-    sm.AddScore(5);
-else
-    sm.SubtractScore(5);
+// Rescue Kit: In FoodItem.cs > OnMouseDown(), REPLACE the single line "Destroy(gameObject);" with this block
+// This is TODO F-3: stop conveyor + play toss animation + delayed destroy
 
 var move = GetComponent<MoveToTarget2D>();
 if (move != null) move.enabled = false;
@@ -26,8 +10,4 @@ if (anim != null)
     anim.SetTrigger("Toss");
 }
 isBeingDestroyed = true;
-
-string action = isDistractor ? "Discarded" : "FalseAlarm";
-OrderManager.Instance.OnTrialComplete(gameObject.tag, action, isDistractor);
-OrderManager.Instance.NotifyFoodDestroyed(gameObject);
 Destroy(gameObject, 0.5f);

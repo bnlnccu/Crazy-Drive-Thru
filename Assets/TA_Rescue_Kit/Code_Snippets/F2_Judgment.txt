@@ -1,6 +1,5 @@
-// Rescue Kit: Copy the following code and paste it into FoodItem.cs > OnMouseDown()
-// Replace BOTH: // ===== TODO F-1 ===== AND // ===== TODO F-2 ===== blocks
-// Location: FoodItem.cs, inside OnMouseDown(), after the two if-guard lines
+// Rescue Kit: Copy into FoodItem.cs > OnMouseDown(), ABOVE the F-1 lines (don't delete F-1)
+// This is TODO F-2: judgment logic + scoring
 
 GameState state = OrderManager.Instance.CurrentState;
 bool isDistractor = false;
@@ -16,5 +15,3 @@ if (isDistractor)
     sm.AddScore(5);
 else
     sm.SubtractScore(5);
-
-Destroy(gameObject);

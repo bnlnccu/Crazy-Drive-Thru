@@ -1,5 +1,6 @@
-// Rescue Kit: Copy the following code and paste it into FoodItem.cs > OnMouseDown()
-// Replace the line: // ===== TODO F-1 =====
-// Location: FoodItem.cs, inside OnMouseDown(), after the two if-guard lines
+// Rescue Kit: Copy into FoodItem.cs > OnMouseDown(), after the two if-guard lines
+// This is TODO F-1: 3 lines that destroy food and advance the game loop
 
 Destroy(gameObject);
+OrderManager.Instance.OnTrialComplete(gameObject.tag, "Discarded", true);
+OrderManager.Instance.NotifyFoodDestroyed(gameObject);

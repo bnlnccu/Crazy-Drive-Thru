@@ -1,0 +1,32 @@
+// Rescue Kit: DLC A - Swipe to Discard
+// Prerequisite: Enable Drag Mode must be checked in OrderManager Inspector
+
+// === Paste inside OnMouseDrag(), after the two if-guard lines ===
+isDragging = true;
+var move = GetComponent<MoveToTarget2D>();
+if (move != null) move.enabled = false;
+Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+transform.position = new Vector3(mousePos.x, mousePos.y, 0f);
+
+// === Paste inside OnMouseUp(), after the two if-guard lines ===
+isDragging = false;
+isBeingDestroyed = true;
+
+GameState state = OrderManager.Instance.CurrentState;
+bool isDistractor = false;
+
+if (state == GameState.StateA)
+    isDistractor = !CompareTag("Fries");
+else
+    isDistractor = !CompareTag("Nugget");
+
+ScoreManager sm = FindObjectOfType<ScoreManager>();
+if (isDistractor)
+    sm.AddScore(5);
+else
+    sm.SubtractScore(5);
+
+string action = isDistractor ? "Discarded" : "FalseAlarm";
+OrderManager.Instance.OnTrialComplete(gameObject.tag, action, isDistractor);
+OrderManager.Instance.NotifyFoodDestroyed(gameObject);
+Destroy(gameObject);
