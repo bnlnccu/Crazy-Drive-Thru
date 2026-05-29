@@ -15,12 +15,9 @@ public class FoodItem : MonoBehaviour
         if (isBeingDestroyed) return;
         if (OrderManager.Instance != null && OrderManager.Instance.EnableDragMode) return;
 
-        // =============================================================
-        // TODO F-1: Add these 3 lines to destroy food and advance trial
-        // =============================================================
-        // Destroy(gameObject);
-        // OrderManager.Instance.OnTrialComplete(gameObject.tag, "Discarded", true);
-        // OrderManager.Instance.NotifyFoodDestroyed(gameObject);
+        Destroy(gameObject);
+        OrderManager.Instance.OnTrialComplete(gameObject.tag, "Discarded", true);
+        OrderManager.Instance.NotifyFoodDestroyed(gameObject);
 
         // =============================================================
         // TODO F-2: Add this block ABOVE the F-1 lines (don't delete F-1)
