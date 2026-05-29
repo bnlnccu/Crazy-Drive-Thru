@@ -15,27 +15,24 @@ public class FoodItem : MonoBehaviour
         if (isBeingDestroyed) return;
         if (OrderManager.Instance != null && OrderManager.Instance.EnableDragMode) return;
 
+        GameState state = OrderManager.Instance.CurrentState;
+        bool isDistractor = false;
+
+        if (state == GameState.StateA)
+            isDistractor = !CompareTag("Fries");
+        else
+            isDistractor = !CompareTag("Nugget");
+
+        ScoreManager sm = FindObjectOfType<ScoreManager>();
+
+        if (isDistractor)
+            sm.AddScore(5);
+        else
+            sm.SubtractScore(5);
+
         Destroy(gameObject);
         OrderManager.Instance.OnTrialComplete(gameObject.tag, "Discarded", true);
         OrderManager.Instance.NotifyFoodDestroyed(gameObject);
-
-        // =============================================================
-        // TODO F-2: Add this block ABOVE the F-1 lines (don't delete F-1)
-        // =============================================================
-        // GameState state = OrderManager.Instance.CurrentState;
-        // bool isDistractor = false;
-        //
-        // if (state == GameState.StateA)
-        //     isDistractor = !CompareTag("Fries");
-        // else
-        //     isDistractor = !CompareTag("Nugget");
-        //
-        // ScoreManager sm = FindObjectOfType<ScoreManager>();
-        //
-        // if (isDistractor)
-        //     sm.AddScore(5);
-        // else
-        //     sm.SubtractScore(5);
 
         // =============================================================
         // TODO F-3: Replace the F-1 "Destroy(gameObject);" with this block
