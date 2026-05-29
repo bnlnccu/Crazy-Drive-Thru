@@ -30,23 +30,18 @@ public class FoodItem : MonoBehaviour
         else
             sm.SubtractScore(5);
 
-        Destroy(gameObject);
+        var move = GetComponent<MoveToTarget2D>();
+        if (move != null) move.enabled = false;
+
+        if (anim != null)
+        {
+            anim.enabled = true;
+            anim.SetTrigger("Toss");
+        }
+        isBeingDestroyed = true;
+        Destroy(gameObject, 0.5f);
         OrderManager.Instance.OnTrialComplete(gameObject.tag, "Discarded", true);
         OrderManager.Instance.NotifyFoodDestroyed(gameObject);
-
-        // =============================================================
-        // TODO F-3: Replace the F-1 "Destroy(gameObject);" with this block
-        // =============================================================
-        // var move = GetComponent<MoveToTarget2D>();
-        // if (move != null) move.enabled = false;
-        //
-        // if (anim != null)
-        // {
-        //     anim.enabled = true;
-        //     anim.SetTrigger("Toss");
-        // }
-        // isBeingDestroyed = true;
-        // Destroy(gameObject, 0.5f);
     }
 
     private void OnMouseDrag()
