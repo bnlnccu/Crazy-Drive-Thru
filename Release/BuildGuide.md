@@ -41,7 +41,7 @@
 *Zero install, cross-platform, anyone can play via browser URL.*
 
 1. In Build Settings, select **WebGL** and click **Switch Platform** (wait 1-2 min)
-![这是图片](/img/WebGL01.png "Magic Gardens")
+![这是图片](../img/WebGL01.png "Magic Gardens")
 2. Click **Build**, create a folder named `Builds_WebGL`
 3. Wait for compilation (~3-5 minutes, longer than local builds)
 4. Output: a folder containing `index.html`
