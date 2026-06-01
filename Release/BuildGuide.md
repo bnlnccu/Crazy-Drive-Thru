@@ -36,17 +36,32 @@
 
 ## Step 2: Choose Your Build Strategy
 
-### Option A: WebGL (Recommended)
+### Option A: WebGL Unity Play(Recommended)
 
-*Zero install, cross-platform, anyone can play via browser URL.*
 
-1. In Build Settings, select **WebGL** and click **Switch Platform** (wait 1-2 min)
-![这是图片](img/WebGL01.jpg "Magic Gardens")
-2. Click **Build**, create a folder named `Builds_WebGL`
-3. Wait for compilation (~3-5 minutes, longer than local builds)
-4. Output: a folder containing `index.html`
-5. Zip the **contents** of the `Builds_WebGL` folder (make sure `index.html` is inside the zip root)
-6. Upload to [Unity Play](https://play.unity.com/):
+1. In Build Settings, select **WebGL** and click **Switch Platform** (wait 1-2 min), If you don't have WebGL module, press Install WebGL to install it, *restart Unity Editor after installation completed.*
+![Install WebGL module](img/WebGL01.jpg)
+2. Go to Windows-> Package Manager, Choose Categort to Unity Regostry
+ ![UnityPlay01](img/UnityPlay01.jpg)
+3. Input "WebGL Publisher" in search bar and Install WebGL Publisher
+   ![UnityPlay02](img/UnityPlay02.jpg)
+4. You can see the menu "Publish" is appeared. Choose "WebGL Project"
+![UnityPlay03](img/UnityPlay03.jpg)
+5. You should see empty WebGL project dialog when you open is at first time, choose "Build and Publish"
+![UnityPlay04](img/UnityPlay04.jpg)
+6. **If you see this prompt windows apprear, choose "Switch to WebGL" **
+![UnityPlay041](img/UnityPlay041.jpg)
+7. Choose You WebGLBuild folder, you can press "Select Folder" button to create a new folder directly
+![UnityPlay05](img/UnityPlay05.jpg)
+8. After build and upload webGL package complete, you will be led to publish web page on browser, please fill the Column "Title" and "Description. Choose the publish setting to "Unlisted" from "Public"
+![UnityPlay06](img/UnityPlay06.jpg)
+9. Press "Save" to complete the publish process, then share the URL of your game to Classroom
+![UnityPlay07](img/UnityPlay07.jpg)
+10. Click **Build**, create a folder named `Builds_WebGL`
+11. Wait for compilation (~3-5 minutes, longer than local builds)
+12. Output: a folder containing `index.html`
+13. Zip the **contents** of the `Builds_WebGL` folder (make sure `index.html` is inside the zip root)
+14. Upload to [Unity Play](https://play.unity.com/):
    - Log in with your Unity account
    - Click **Post Game** (top-right)
    - Fill in title, drag-and-drop the `.zip` file
