@@ -88,7 +88,7 @@ Prerequisites: An unity account (You should already have it)
 12. In "Visibility & access", choose **Public** and **Unlisted in search & browse** (Unless your team would share the game everyone in Internet)
 ![itch06](img/itch06.jpg)
 13. Press "Save" button to complete the game publish
-14. Share your game project to complete, for example:
+14. Share your game project to complete, for example: https://kunio666666.itch.io/crazy-drive-thru
 ![itch07](img/itch07.jpg)
 ---
 
