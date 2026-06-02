@@ -82,9 +82,11 @@ Prerequisites: An unity account (You should already have it)
 9. In "Kind of project", choose **HTML**
 ![itch03](img/itch03.jpg)
 10. In "Uploads", choose **Your zipped file** to upload the
-![itch03](img/itch03.jpg)
-11. Wait for compilation (~3-5 minutes, longer than local builds)
-12. Output: a folder containing `index.html`
+![itch04](img/itch04.jpg)
+11. In "Embed Options", set the resolutions of your game design, for example, "1280 x 720"
+![itch05](img/itch05.jpg)
+12. In "Visibility & access", choose **Public** and **Unlisted in search & browse** (Unless your team would share everyone in Internet)
+![itch06](img/itch06.jpg)
 13. Zip the **contents** of the `Builds_WebGL` folder (make sure `index.html` is inside the zip root)
 14. Upload to [Unity Play](https://play.unity.com/):
    - Log in with your Unity account
