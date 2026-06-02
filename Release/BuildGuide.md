@@ -36,27 +36,39 @@
 
 ## Step 2: Choose Your Build Strategy
 
-### Option A: WebGL Unity Play(Recommended)
-
-
 1. In Build Settings, select **WebGL** and click **Switch Platform** (wait 1-2 min), If you don't have WebGL module, press Install WebGL to install it, *restart Unity Editor after installation completed.*
 ![Install WebGL module](img/WebGL01.jpg)
-2. Go to Windows-> Package Manager, Choose Categort to Unity Regostry
+2. It require 2.55 GB disk space after installation completed
+![Install WebGL module](img/WebGL02.jpg)
+
+### Option A: WebGL Unity Play(Recommended)
+Prerequisites: An unity account (You should already have it)
+1. Go to Windows-> Package Manager, Choose Categort to Unity Regostry
  ![UnityPlay01](img/UnityPlay01.jpg)
-3. Input "WebGL Publisher" in search bar and Install WebGL Publisher
+2. Input "WebGL Publisher" in search bar and Install WebGL Publisher
    ![UnityPlay02](img/UnityPlay02.jpg)
-4. You can see the menu "Publish" is appeared. Choose "WebGL Project"
+3. You can see the menu "Publish" is appeared. Choose "WebGL Project"
 ![UnityPlay03](img/UnityPlay03.jpg)
-5. You should see empty WebGL project dialog when you open is at first time, choose "Build and Publish"
+4. You should see empty WebGL project dialog when you open is at first time, choose "Build and Publish"
 ![UnityPlay04](img/UnityPlay04.jpg)
-6. **If you see this prompt windows apprear, choose "Switch to WebGL" **
+5. **If you see this prompt windows apprear, choose "Switch to WebGL" **
 ![UnityPlay041](img/UnityPlay041.jpg)
-7. Choose You WebGLBuild folder, you can press "Select Folder" button to create a new folder directly
+6. Press "Build and Publish" button, choose You WebGLBuild folder, you can press "Select Folder" button to create a new folder directly
 ![UnityPlay05](img/UnityPlay05.jpg)
-8. After build and upload webGL package complete, you will be led to publish web page on browser, please fill the Column "Title" and "Description. Choose the publish setting to "Unlisted" from "Public"
+7. After build and upload webGL package complete, you will be led to publish web page on browser, please fill the Column "Title" and "Description. Choose the publish setting to "Unlisted" from "Public"
 ![UnityPlay06](img/UnityPlay06.jpg)
-9. Press "Save" to complete the publish process, then share the URL of your game to Classroom
+8. Press "Save" to complete the publish process, then share the URL of your game to Classroom
 ![UnityPlay07](img/UnityPlay07.jpg)
+
+
+
+### Option B: itch.io
+
+1. Go to https://itch.io/ to register account
+2. 
+> **DO NOT** double-click `index.html` to test! Web browsers block local file execution (CORS policy). You **MUST** upload to Unity Play, or use **"Build And Run"** in Unity (which spins up a temporary local server).
+
+> **First-time WebGL build warning:** The first WebGL build may take **15-30 minutes** on a standard laptop. DO NOT force close Unity. Be patient.
 10. Click **Build**, create a folder named `Builds_WebGL`
 11. Wait for compilation (~3-5 minutes, longer than local builds)
 12. Output: a folder containing `index.html`
@@ -66,68 +78,6 @@
    - Click **Post Game** (top-right)
    - Fill in title, drag-and-drop the `.zip` file
    - Publish and share the URL
-
-> **DO NOT** double-click `index.html` to test! Web browsers block local file execution (CORS policy). You **MUST** upload to Unity Play, or use **"Build And Run"** in Unity (which spins up a temporary local server).
-
-> **First-time WebGL build warning:** The first WebGL build may take **15-30 minutes** on a standard laptop. DO NOT force close Unity. Be patient.
-
-### Option B: Local Build (Windows / Mac)
-
-*Use when you need precise hardware performance and millisecond-level RT measurements.*
-
-In Build Settings, select **PC, Mac & Linux Standalone**. Then configure the right panel:
-
-| Your Computer | Target OS | Architecture |
-|---|---|---|
-| Windows | Windows | Intel 64-bit |
-| Mac (Intel) | macOS | Intel 64-bit |
-| Mac (Apple Silicon) | macOS | Apple Silicon |
-
-If your current platform is different from the target, click **Switch Platform** and wait for re-import (may take 1-2 minutes).
-
----
-
-## Step 3: Build (Local)
-
-1. Click **Build** (not "Build And Run")
-2. Choose an output folder:
-   - Create a new folder like `Builds/Windows` or `Builds/Mac` inside your project
-   - **Windows**: Name the file `YourGameName.exe`
-   - **Mac**: Name the file `YourGameName`
-3. Wait for build to complete (about 30-60 seconds)
-4. If successful, Unity will open the output folder
-
----
-
-## Step 4: Run the Build
-
-**Windows:**
-- Navigate to the output folder
-- Double-click `YourGameName.exe`
-- If Windows Defender warns you, click "More info" > "Run anyway"
-
-**Mac:**
-- Navigate to the output folder
-- Double-click `YourGameName.app`
-- If macOS blocks it: Right-click > Open > "Open" in the dialog
-- Or: System Settings > Privacy & Security > "Open Anyway"
-
----
-
-## Step 5: Distribute
-
-To share the built game with others:
-
-**Windows:**
-- Zip the **entire output folder** (not just the .exe)
-- Must include: `YourGameName.exe` + `YourGameName_Data/` folder + `UnityPlayer.dll`
-- Missing any of these = game won't run
-- **Google Drive warning:** Google Classroom / Google Drive often flags `.zip` files containing `.exe` or `.dll` as viruses. If classmates cannot download your Local Build, use the **WebGL (Option A)** method instead.
-
-**Mac:**
-- Zip the `YourGameName.app` bundle
-- Recipients may need to bypass Gatekeeper (right-click > Open)
-
 ---
 
 ## Troubleshooting
