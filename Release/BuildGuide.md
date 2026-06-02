@@ -38,7 +38,7 @@
 
 1. In Build Settings, select **WebGL** and click **Switch Platform** (wait 1-2 min), If you don't have WebGL module, press Install WebGL to install it, *restart Unity Editor after installation completed.*
 ![Install WebGL module](img/WebGL01.jpg)
-2. It require 2.55 GB disk space after installation completed
+2. It require 2.55 GB disk space after installation completed in Windows platform.
 ![Install WebGL module](img/WebGL02.jpg)
 
 ### Option A: WebGL Unity Play(Recommended)
@@ -64,12 +64,25 @@ Prerequisites: An unity account (You should already have it)
 
 ### Option B: itch.io
 
-1. Go to https://itch.io/ to register account
-2. 
+1. Go to File -> Build Settings, choose WebGL platform to build
+!WebGL03](img/WebGL03.jpg)
+2. Click **Build**, choose the folder to build, usually "Build" folder
+3. Wait for compilation (~3-5 minutes, longer than local builds), Output: a folder containing `index.html`
 > **DO NOT** double-click `index.html` to test! Web browsers block local file execution (CORS policy). You **MUST** upload to Unity Play, or use **"Build And Run"** in Unity (which spins up a temporary local server).
 
 > **First-time WebGL build warning:** The first WebGL build may take **15-30 minutes** on a standard laptop. DO NOT force close Unity. Be patient.
-10. Click **Build**, create a folder named `Builds_WebGL`
+
+4. After build complete, open windows file explorer: <Your project folder>\Build, Zip the **contents** of the `Builds_WebGL` folder (make sure `index.html` is inside the zip root)
+!WebGL04](img/WebGL04.jpg)
+5. Go to https://itch.io/ to register account
+7. Choose "Upload a game" to upload your game project
+![itch01](img/itch01.jpg)
+8. If you have no other game project, choose "Create new project"
+![itch02](img/itch02.jpg)
+9. In "Kind of project", choose **HTML**
+![itch03](img/itch03.jpg)
+10. In "Uploads", choose **Your zipped file** to upload the
+![itch03](img/itch03.jpg)
 11. Wait for compilation (~3-5 minutes, longer than local builds)
 12. Output: a folder containing `index.html`
 13. Zip the **contents** of the `Builds_WebGL` folder (make sure `index.html` is inside the zip root)
