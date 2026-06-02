@@ -85,14 +85,11 @@ Prerequisites: An unity account (You should already have it)
 ![itch04](img/itch04.jpg)
 11. In "Embed Options", set the resolutions of your game design, for example, "1280 x 720"
 ![itch05](img/itch05.jpg)
-12. In "Visibility & access", choose **Public** and **Unlisted in search & browse** (Unless your team would share everyone in Internet)
+12. In "Visibility & access", choose **Public** and **Unlisted in search & browse** (Unless your team would share the game everyone in Internet)
 ![itch06](img/itch06.jpg)
-13. Zip the **contents** of the `Builds_WebGL` folder (make sure `index.html` is inside the zip root)
-14. Upload to [Unity Play](https://play.unity.com/):
-   - Log in with your Unity account
-   - Click **Post Game** (top-right)
-   - Fill in title, drag-and-drop the `.zip` file
-   - Publish and share the URL
+13. Press "Save" button to complete the game publish
+14. Share your game project to complete, for example:
+![itch07](img/itch07.jpg)
 ---
 
 ## Troubleshooting
@@ -145,17 +142,5 @@ Prerequisites: An unity account (You should already have it)
 - Select audio files > Inspector > set **Load Type** to `Compressed in Memory`
 - Rebuild
 
----
-
-## Quick Reference
-
-| Item | Value |
-|---|---|
-| Scene | Your main scene (index 0 in Build Settings) |
-| Build target | WebGL (recommended) / Windows x86_64 / macOS |
-| Expected build size | ~80 MB (Windows), varies for WebGL |
-| Expected build time | ~30-60 sec (local), ~3-5 min (WebGL) |
-| Output (Windows) | `YourGameName.exe` + `YourGameName_Data/` folder + `UnityPlayer.dll` |
-| Output (Mac) | `YourGameName.app` bundle |
 | Output (WebGL) | folder with `index.html` → zip → upload to Unity Play |
 | Recommended resolution | 1280 x 720, Windowed mode |
